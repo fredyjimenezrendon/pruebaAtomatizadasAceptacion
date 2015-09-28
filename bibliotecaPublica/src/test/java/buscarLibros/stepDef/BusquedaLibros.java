@@ -18,7 +18,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import dao.LibroDao;
 
 public class BusquedaLibros {
 	
@@ -29,6 +28,7 @@ public class BusquedaLibros {
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		driver = new ChromeDriver();
+//		driver = new HtmlUnitDriver();
 		
 	}
 	
@@ -65,22 +65,21 @@ public class BusquedaLibros {
 	@Then("^Aparecen (\\d+) libros en la lista de resultados$")
 	public void retornaLibrosEncontrados(final int librosEncontrados) {
 		
-		WebElement fechaDesdeElement = driver.findElement(By.id("fechaDesde"));
-		String fechaDesde = fechaDesdeElement.getText();
+		WebElement resultados = driver.findElement(By.id("resultado"));
+		List<WebElement> registros = resultados.findElements(By.tagName("tr"));
 		
-		WebElement fechaHastaElement = driver.findElement(By.id("fechaHasta"));
-		String fechaHasta = fechaHastaElement.getText();
-		
-		listaLibrosRetornados = new LibroDao().getLibrosPorFechaDePublicacion(fechaDesde, fechaHasta);
-		
-		Assert.assertEquals(librosEncontrados, listaLibrosRetornados.size());
+		Assert.assertEquals(librosEncontrados, registros.size());
 
 	}
 
 	@And("^El libro (\\d+) debe tener el titulo '(.+)'$")
 	public void libro1(final int posicionLibro, final String nombreLibro) {
 		
-		Assert.assertEquals(nombreLibro, listaLibrosRetornados.get(posicionLibro-1).getTitulo());
+		WebElement resultados = driver.findElement(By.id("resultado"));
+		List<WebElement> registros = resultados.findElements(By.tagName("td"));
+
+		
+		Assert.assertEquals(nombreLibro, registros.get(posicionLibro -1 ).getText());
 
 	}
 
