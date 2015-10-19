@@ -1,8 +1,13 @@
 $( document ).ready(function() {
  
-	$( "#resultado" ).hide();
 	$( '#buscar' ).click(function() {
-		$( "#resultado" ).show();
+		
+		$.post( "../BusquedaLibrosServlet", function( data ) {
+			  $.each(data,  function(i, libro){
+				  $('#resultado').append('<tr><td>' + libro.titulo +'</td></tr>');
+			  });
+			});
+		
 	});
  
 });

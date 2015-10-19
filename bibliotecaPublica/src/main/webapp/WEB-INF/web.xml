@@ -4,4 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <servlet>
+  	<servlet-name>BusquedaLibrosServlet</servlet-name>
+  	<display-name>BusquedaLibrosServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.BusquedaLibrosServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BusquedaLibrosServlet</servlet-name>
+  	<url-pattern>/BusquedaLibrosServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,7 +1,7 @@
 Feature: Busqueda de libros
 
   Como: estudiante de ingenieria
-  Deseo: una pantalla de busqueda de libros
+  Deseo: un formulario de busqueda de libros
   Para: Buscar libros que me ayuden con los trabajos
  
   Scenario: Buscar libros por anio de publicacion

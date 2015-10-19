@@ -19,7 +19,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class BusquedaLibros {
+public class BusquedaLibrosAnio {
 	
 	static WebDriver driver;
 	List<Libro> listaLibrosRetornados;
@@ -40,7 +40,7 @@ public class BusquedaLibros {
 	@Given("^El usuario busca libros publicados entre (\\d+) y (\\d+)$")
 	public void buscarLibrosPorFechaPublicacion(@Format("yyyy") final Date fechaDesde, @Format("yyyy") final Date fechaHasta) {
 		
-		driver.navigate().to("http://localhost:7777/bibliotecaPublica/html/buscadorLibros.html");
+		driver.navigate().to("http://localhost:8080/bibliotecaPublica/html/buscadorLibros.html");
 		
 		Calendar fechaDesdeCalendar = Calendar.getInstance();
 		fechaDesdeCalendar.setTime(fechaDesde);
