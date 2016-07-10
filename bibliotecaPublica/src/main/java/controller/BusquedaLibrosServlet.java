@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,12 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Libro;
-
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import dao.LibroDao;
+import model.Libro;
 
 public class BusquedaLibrosServlet extends HttpServlet {
 	
